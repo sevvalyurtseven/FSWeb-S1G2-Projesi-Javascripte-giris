@@ -19,6 +19,13 @@ Aşağıdakileri yap:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
+let surucuYasi = 20;
+
+if (surucuYasi > 18) {
+  console.log(true);
+} else {
+  console.log(false);
+}
 
 /*
 Görev 1b - Değerler (puanlamaya dahil değildir)
@@ -32,6 +39,16 @@ Aşağıdakileri yap:
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
 
+let x = 5;
+let y = 10;
+
+if (x < y) {
+ 
+  x = y;
+}
+
+console.log("1. Değer: " + x);
+
 /*
 Görev 1c - String bir değeri Number'a dönüştürün (puanlamaya dahil değildir)
 
@@ -42,7 +59,9 @@ Aşağıdakileri yap:
 
    İPUCU: Number metoduna bakabilirsin
 */
-
+let strDeger = "1999";
+let intDeger = Number(strDeger);
+console.log("Dönüştürülen Integer Değer: " + intDeger);
 /*
 Görev 1d - Çarpma
  
@@ -52,9 +71,11 @@ Aşağıdakileri yaparak carpma isimli fonksiyonu tamamla:
    3. console.log(carpma(7,4)) ile yazdığın fonsiyonu test edin. Console'da sonucu 28 olarak görmelisin.
 */
 
-function carpma(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function carpma(a, b) {
+  return a * b;
 }
+
+console.log(carpma(7, 4));
 
 /* Görev 2 : Köpeğin Yaşı */
 
@@ -65,9 +86,14 @@ Aşağıdakileri yap:
  3. Hesaplanan köpeğin yaşını dönün.
  */
 
-function kopeginYasi(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function kopeginYasi(insanYasi) {
+  let kopekYasi = insanYasi * 7; 
+    return kopekYasi; 
 }
+
+let insaninYasi = 5; 
+let kopeginYasiSonuc = kopeginYasi(insaninYasi);
+console.log("Köpeğin yaşı: " + kopeginYasiSonuc); 
 
 /* Görev 3 */
 /*
@@ -113,9 +139,14 @@ Aşağdaki milDonusturucu fonksiyonunu aşağıdakileri kullanarak tamamla:
 3. Mil değerini geri dönün
 */
 
-function milDonusturucu(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function milDonusturucu(kilometre) {
+  let mil = kilometre * 0.621371;
+    return mil;
 }
+
+let km = 10;
+let mil= milDonusturucu(km);
+console.log(km + " kilometre, " + mil+ " mil eder.");
 
 //Görev 4b - Santimetreden Feet
 /*
@@ -127,9 +158,14 @@ Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yap:
 Google'da arama ipucu: "feet cm dönüştürme"
 */
 
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function feetDonusturucu(santimetre) {
+  let feet = santimetre * 0.0328084;
+  return feet;
 }
+
+let cmDegeri = 100; // Örnek olarak 100 santimetre
+let feetDegeri = feetDonusturucu(cmDegeri);
+console.log(cmDegeri + " santimetre, " + feetDegeri + " feet eder.");
 
 /* Görev 5 : 5 küçük maymun yatakta zıplamış şarkısını çocuklar için hazırladığımı varsayalım. https://www.youtube.com/watch?v=e4EJ34xnlxk */
 
@@ -144,9 +180,16 @@ Aşağıdakileri cocukSarkisi fonksiyonunda yap:
 4. Bu döngüde, her seferinde cocukSarkisi fonsiyonu çalışsın ve console.log'a dönen metni yazdırsın.
 */
 
-function cocukSarkisi(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function cocukSarkisi(maymunSayisi) {
+  if (maymunSayisi === 1) {
+    console.log("1 küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!");
+} else {
+    console.log(maymunSayisi + " küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!");
+    cocukSarkisi(maymunSayisi - 1); 
 }
+}
+
+cocukSarkisi(5)
 
 /* Görev 6 : Not Hesaplayıcı */
 
@@ -163,9 +206,24 @@ Aşağdakileri notHesapla fonksiyonunda yap.
  dönün
 */
 
-function notHesapla(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function notHesapla(sınavSonucu) {
+  if (sınavSonucu >= 90 && sınavSonucu <= 100) {
+    return 'A aldın';
+} else if (sınavSonucu >= 80 && sınavSonucu < 90) {
+    return 'B aldın';
+} else if (sınavSonucu >= 70 && sınavSonucu < 80) {
+    return 'C aldın';
+} else if (sınavSonucu >= 60 && sınavSonucu < 70) {
+    return 'D aldın';
+} else {
+    return 'F aldın';
 }
+
+}
+
+let sınavSonucu = 85;
+let not = notHesapla(sınavSonucu);
+console.log('Sınav sonucu ' + sınavSonucu + ' olduğunda, ' + not);
 
 /* Bonus Çalışma: Sesli harf sayacı - Kaç tane sesli harf var? */
 
@@ -178,9 +236,7 @@ Aşağıdakileri sesliHarfSayaci fonskiyonunda yap.
 İPUCU - .includes() methoduna bakabilirsin. (https://www.w3schools.com/jsref/jsref_includes.asp)
 */
 
-function sesliHarfSayaci(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
-}
+
 
 /* Lütfen bu satırın alt tarafını değiştirmeyin */
 function sa() {
@@ -198,4 +254,5 @@ module.exports = {
   feetDonusturucu,
   cocukSarkisi,
   notHesapla,
+  sesliHarfSayaci,
 };
